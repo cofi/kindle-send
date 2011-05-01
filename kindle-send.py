@@ -70,7 +70,8 @@ def prepare_mail(attachments):
     for attachment in attachments:
         try:
             fname = basename(attachment)
-            _, extension = splitext(fname) type_, subtype = EXTENSION_TO_MIME_PAIR[extension]
+            _, extension = splitext(fname)
+            type_, subtype = EXTENSION_TO_MIME_PAIR[extension]
             part = MIMEBase(type_, subtype)
             with open(attachment, 'rb') as fobj:
                 part.set_payload(fobj.read())
